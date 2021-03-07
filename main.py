@@ -343,8 +343,6 @@ class Ui_MainWindow(object):
             if s != 'leer':
                 windows_is_crap = 0
 
-        print(s)    # TODO print entfernen
-
         east = s.find('81.')
         north = s.find('82.')
 
