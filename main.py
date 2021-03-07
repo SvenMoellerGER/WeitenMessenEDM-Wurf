@@ -319,7 +319,6 @@ class Ui_MainWindow(object):
         self.changed_comboBox_AuswahlDisziplin()
         self.changed_checkBox_3NKS()
 
-
     def serial_con(self):
         global ser
         cp = self.spinBox_comport.value()
