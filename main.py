@@ -513,8 +513,7 @@ class Ui_MainWindow(object):
             self.label_Radius.setText("D = " + "%.3f" % (2*R) + "m" + " // " + "R = " + "%.4f" % R + "m")
             logging.info("Disziplin geaendert: Kugel")
         elif self.comboBox_AuswahlDisziplin.currentIndex() == 1:
-            # R = 1.25  # TODO Radius ändern!
-            R = 0.030
+            R = 1.25
             self.label_Radius.setText("D = " + "%.2f" % (2*R) + "m" + " // " + "R = " + "%.2f" % R + "m")
             logging.info("Disziplin geaendert: Diskus")
         elif self.comboBox_AuswahlDisziplin.currentIndex() == 2:
