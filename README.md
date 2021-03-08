@@ -18,6 +18,3 @@ Mit dem Programm "WeitenMessenEDM" können Wurfweiten für die Disziplinen Kugel
 ## Folgende Module müssen in Python vorhanden sein
 * PyQt5
 * serial
-* math
-* time
-* logging
