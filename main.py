@@ -23,6 +23,9 @@ logging.info("WeitenMessen EDM - Wurf/Stoss - gestartet")
 # logging.critical("text")
 
 mw = []
+global ser, R
+global M_E, M_N, P_E, P_N, Rbe
+global strip1, strip2, e_data, n_data, falseGSI
 
 
 class Ui_MainWindow(object):
@@ -320,7 +323,6 @@ class Ui_MainWindow(object):
         self.changed_checkBox_3NKS()
 
     def serial_con(self):
-        global ser
         cp = self.spinBox_comport.value()
         cp = "COM" + str(cp)
         ser = serial.Serial(port=cp, baudrate=19200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,
@@ -329,7 +331,6 @@ class Ui_MainWindow(object):
         return ser
 
     def read(self):
-        global strip1, strip2, e_data, n_data, falseGSI
         s = 'leer'
         windows_is_crap = 1
         falseGSI = 0
@@ -442,7 +443,6 @@ class Ui_MainWindow(object):
         logging.error(ex[2])
 
     def clicked_actionMittelpunkt_messen(self):
-        global M_E, M_N
         logging.info("SETUP: Mittelpunkt - Start")
         try:
             M_E, M_N = self.setup_mittelpunkt()
@@ -455,7 +455,6 @@ class Ui_MainWindow(object):
             self.log_serialException()
 
     def clicked_action3_Punkte_auf_Kreis_messen(self):
-        global M_E, M_N, Rbe
         logging.info("SETUP: 3 Punkte auf Kreis - Start")
         try:
             M_E, M_N, Rbe = self.setup_3punkte()
@@ -477,7 +476,6 @@ class Ui_MainWindow(object):
             self.log_serialException()
 
     def clicked_actionFestpunkt_LOESCHEN(self):
-        global M_E, M_N
         M_E, M_N = 0, 0
         logging.warning("SETUP: Mittelpunkt geloescht!")
         self.pushButton_WeiteMessen.setEnabled(False)
@@ -495,7 +493,6 @@ class Ui_MainWindow(object):
             logging.info("Protokoll-Modus ausgeschaltet")
 
     def clicked_pushButton_WeiteMessen(self):
-        global P_E, P_N
         logging.info("Weite messen - Start")
         try:
             print("Punkt messen!")
@@ -506,7 +503,6 @@ class Ui_MainWindow(object):
             self.log_serialException()
 
     def changed_comboBox_AuswahlDisziplin(self):
-        global R
         if self.comboBox_AuswahlDisziplin.currentIndex() == 0:
             R = 1.0675
             self.label_Radius.setText("D = " + "%.3f" % (2*R) + "m" + " // " + "R = " + "%.4f" % R + "m")
